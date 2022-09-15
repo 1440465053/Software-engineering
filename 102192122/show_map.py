@@ -9,10 +9,12 @@ def show_map():
     confirm_table = confirm_data.sheets()[0]
     asymptomatically_table = confirm_data.sheets()[1]
 
+    # X轴对应日期，y轴对应每天新增确诊和无症状
     xdata = []
     ydata_confirm = []
     ydata_asymptomatically = []
 
+    # 获取表格对应数据
     for i in range(1, confirm_table.nrows):
         xdata.append(confirm_table.col_values(0)[i])
         ydata_confirm.append(confirm_table.col_values(1)[i])

@@ -3,12 +3,11 @@ from pyppeteer import launch
 from bs4 import BeautifulSoup
 
 
-
 async def pyppteer_fetchUrl(url):
     browser = await launch({'headless': False, 'dumpio': True, 'autoClose': True})
     page = await browser.newPage()
 
-    await page.goto(url) # 加不加timeout都报超时错误
+    await page.goto(url)  # 加不加timeout都报超时错误
     await asyncio.wait([asyncio.create_task(page.waitForNavigation())])
     # await asyncio.wait([page.waitForNavigation()])，过时报错，虽然不影响
     # asyncio.create_task([page.waitForNavigation()])
@@ -52,8 +51,3 @@ def getContent(html):
         return s
 
     return "爬取失败！"
-
-
-
-
-
